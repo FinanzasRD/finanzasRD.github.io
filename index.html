@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es-DO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinanzasRD - Herramientas Financieras para República Dominicana</title>
+  <meta name="description" content="Las mejores herramientas financieras gratis para República Dominicana. Calcula préstamos, ahorro, interés compuesto y convierte DOP a USD.">
+  <meta name="keywords" content="finanzas republica dominicana, calculadora prestamos RD, calculadora ahorro, interes compuesto, conversor dolar peso dominicano, cooperativas RD, finanzas personales">
+  <meta name="author" content="FinanzasRD">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://finanzasrd.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FinanzasRD - Herramientas Financieras para República Dominicana">
+  <meta property="og:description" content="Calcula préstamos, ahorro e inversiones fácilmente. Herramientas financieras gratis para RD.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://finanzasrd.com/">
+  <meta property="og:locale" content="es_DO">
+  <meta property="og:site_name" content="FinanzasRD">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FinanzasRD - Herramientas Financieras para RD">
+  <meta name="twitter:description" content="Calcula préstamos, ahorro e inversiones fácilmente.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="#" class="header__logo">FinanzasRD</a>
+      <button class="header__toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header__nav" id="mainNav">
+        <ul class="header__menu">
+          <li><a href="#inicio" class="header__link">Inicio</a></li>
+          <li><a href="#calculadoras" class="header__link">Calculadoras</a></li>
+          <li><a href="#blog" class="header__link">Blog</a></li>
+          <li><a href="#comparador" class="header__link">Comparador</a></li>
+          <li><a href="#contacto" class="header__link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="container hero__container">
+      <div class="hero__content">
+        <h1 class="hero__title">Las mejores herramientas financieras para República Dominicana</h1>
+        <p class="hero__subtitle">Calcula préstamos, ahorro e inversiones fácilmente</p>
+        <a href="#calculadoras" class="btn btn--primary">Comenzar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE SLOT 1 -->
+  <div class="adsense"><!-- ADSENSE SLOT - HERO BOTTOM --></div>
+
+  <!-- ===== CALCULADORAS ===== -->
+  <section class="calculadoras" id="calculadoras">
+    <div class="container">
+      <h2 class="section__title">Calculadoras Financieras</h2>
+      <p class="section__subtitle">Herramientas precisas para tomar mejores decisiones</p>
+
+      <div class="calculadoras__grid">
+
+        <!-- Calculadora 1: Ahorro Mensual -->
+        <div class="card calculadora">
+          <h3 class="calculadora__title">Ahorro Mensual</h3>
+          <p class="calculadora__desc">Calcula cuánto acumularás mes a mes</p>
+          <div class="calculadora__form">
+            <div class="form-group">
+              <label for="ahorroMonto">Ahorro mensual (RD$)</label>
+              <input type="number" id="ahorroMonto" value="5000" min="0">
+            </div>
+            <div class="form-group">
+              <label for="ahorroMeses">Cantidad de meses</label>
+              <input type="number" id="ahorroMeses" value="12" min="1">
+            </div>
+            <button class="btn btn--secondary calcular-btn" data-calc="ahorro">Calcular</button>
+          </div>
+          <div class="calculadora__result" id="ahorroResult">
+            <span class="result-label">Total acumulado:</span>
+            <span class="result-value">RD$ 60,000</span>
+          </div>
+        </div>
+
+        <!-- Calculadora 2: Interés Compuesto -->
+        <div class="card calculadora">
+          <h3 class="calculadora__title">Interés Compuesto</h3>
+          <p class="calculadora__desc">Proyecta el crecimiento de tu inversión</p>
+          <div class="calculadora__form">
+            <div class="form-group">
+              <label for="compCapital">Capital inicial (RD$)</label>
+              <input type="number" id="compCapital" value="10000" min="0">
+            </div>
+            <div class="form-group">
+              <label for="compAporte">Aporte mensual (RD$)</label>
+              <input type="number" id="compAporte" value="2000" min="0">
+            </div>
+            <div class="form-group">
+              <label for="compTasa">Tasa anual (%)</label>
+              <input type="number" id="compTasa" value="10" min="0" step="0.1">
+            </div>
+            <div class="form-group">
+              <label for="compAnios">Años</label>
+              <input type="number" id="compAnios" value="5" min="1">
+            </div>
+            <button class="btn btn--secondary calcular-btn" data-calc="compuesto">Calcular</button>
+          </div>
+          <div class="calculadora__result" id="compResult">
+            <span class="result-label">Total al final:</span>
+            <span class="result-value">RD$ 167,854</span>
+          </div>
+        </div>
+
+        <!-- Calculadora 3: Préstamo -->
+        <div class="card calculadora">
+          <h3 class="calculadora__title">Préstamo</h3>
+          <p class="calculadora__desc">Calcula tu cuota mensual exacta</p>
+          <div class="calculadora__form">
+            <div class="form-group">
+              <label for="prestamoMonto">Monto (RD$)</label>
+              <input type="number" id="prestamoMonto" value="100000" min="0">
+            </div>
+            <div class="form-group">
+              <label for="prestamoInteres">Interés anual (%)</label>
+              <input type="number" id="prestamoInteres" value="18" min="0" step="0.1">
+            </div>
+            <div class="form-group">
+              <label for="prestamoPlazo">Plazo (meses)</label>
+              <input type="number" id="prestamoPlazo" value="24" min="1">
+            </div>
+            <button class="btn btn--secondary calcular-btn" data-calc="prestamo">Calcular</button>
+          </div>
+          <div class="calculadora__result" id="prestamoResult">
+            <span class="result-label">Cuota mensual:</span>
+            <span class="result-value">RD$ 4,992</span>
+          </div>
+        </div>
+
+        <!-- Calculadora 4: Conversor Dólar -->
+        <div class="card calculadora">
+          <h3 class="calculadora__title">Conversor Dólar → Peso RD</h3>
+          <p class="calculadora__desc">Tasa actualizada al momento</p>
+          <div class="calculadora__form">
+            <div class="form-group">
+              <label for="convTasa">Tasa del día (1 USD → RD$)</label>
+              <input type="number" id="convTasa" value="59.50" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+              <label for="convDolares">Dólares (USD)</label>
+              <input type="number" id="convDolares" value="100" min="0" step="0.01">
+            </div>
+            <button class="btn btn--secondary calcular-btn" data-calc="conversor">Convertir</button>
+          </div>
+          <div class="calculadora__result" id="convResult">
+            <span class="result-label">Equivalente:</span>
+            <span class="result-value">RD$ 5,950</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE SLOT 2 -->
+  <div class="adsense"><!-- ADSENSE SLOT - AFTER CALCULATORS --></div>
+
+  <!-- ===== COMPARADOR DE COOPERATIVAS ===== -->
+  <section class="comparador" id="comparador">
+    <div class="container">
+      <h2 class="section__title">Comparador de Cooperativas</h2>
+      <p class="section__subtitle">Compara las mejores opciones financieras de RD</p>
+
+      <div class="table-wrapper">
+        <table class="coop-table" id="coopTable">
+          <thead>
+            <tr>
+              <th>Cooperativa</th>
+              <th>Tasa %</th>
+              <th>Plazo (meses)</th>
+              <th>Beneficio (RD$)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="coopBody">
+            <tr>
+              <td><input type="text" value="Coop Popular" class="coop-input"></td>
+              <td><input type="number" value="12" class="coop-input" step="0.1"></td>
+              <td><input type="number" value="24" class="coop-input"></td>
+              <td><input type="number" value="15000" class="coop-input" step="100"></td>
+              <td><button class="btn-delete" aria-label="Eliminar">✕</button></td>
+            </tr>
+            <tr>
+              <td><input type="text" value="Coop La Nacional" class="coop-input"></td>
+              <td><input type="number" value="10.5" class="coop-input" step="0.1"></td>
+              <td><input type="number" value="36" class="coop-input"></td>
+              <td><input type="number" value="22000" class="coop-input" step="100"></td>
+              <td><button class="btn-delete" aria-label="Eliminar">✕</button></td>
+            </tr>
+            <tr>
+              <td><input type="text" value="Coop Mype" class="coop-input"></td>
+              <td><input type="number" value="15" class="coop-input" step="0.1"></td>
+              <td><input type="number" value="18" class="coop-input"></td>
+              <td><input type="number" value="8500" class="coop-input" step="100"></td>
+              <td><button class="btn-delete" aria-label="Eliminar">✕</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn--outline" id="addCoopBtn">+ Agregar cooperativa</button>
+    </div>
+  </section>
+
+  <!-- ADSENSE SLOT 3 -->
+  <div class="adsense"><!-- ADSENSE SLOT - BEFORE BLOG --></div>
+
+  <!-- ===== BLOG ===== -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <h2 class="section__title">Blog Financiero</h2>
+      <p class="section__subtitle">Consejos prácticos para tus finanzas personales en RD</p>
+
+      <div class="blog__grid">
+        <article class="blog__card">
+          <div class="blog__img">📚</div>
+          <div class="blog__body">
+            <span class="blog__tag">Ahorro</span>
+            <h3>Cómo ahorrar en República Dominicana</h3>
+            <p>Estrategias prácticas para ahorrar dinero cada mes, incluso con un salario promedio en RD.</p>
+          </div>
+        </article>
+
+        <article class="blog__card">
+          <div class="blog__img">🏦</div>
+          <div class="blog__body">
+            <span class="blog__tag">Cooperativas</span>
+            <h3>Mejores cooperativas en RD</h3>
+            <p>Comparativa de las cooperativas más sólidas del país y cómo asociarte para obtener mejores beneficios.</p>
+          </div>
+        </article>
+
+        <article class="blog__card">
+          <div class="blog__img">📉</div>
+          <div class="blog__body">
+            <span class="blog__tag">Deudas</span>
+            <h3>Cómo salir de deudas rápido</h3>
+            <p>Método bola de nieve y otras técnicas efectivas para eliminar deudas en República Dominicana.</p>
+          </div>
+        </article>
+
+        <article class="blog__card">
+          <div class="blog__img">📈</div>
+          <div class="blog__body">
+            <span class="blog__tag">Inversiones</span>
+            <h3>Cómo invertir poco dinero en RD</h3>
+            <p>Opciones de inversión accesibles desde montos pequeños: fondos, cooperativas y más.</p>
+          </div>
+        </article>
+
+        <article class="blog__card">
+          <div class="blog__img">⚠️</div>
+          <div class="blog__body">
+            <span class="blog__tag">Educación</span>
+            <h3>Errores financieros comunes</h3>
+            <p>Los 7 errores que más cometen los dominicanos con su dinero y cómo evitarlos.</p>
+          </div>
+        </article>
+
+        <article class="blog__card">
+          <div class="blog__img">📊</div>
+          <div class="blog__body">
+            <span class="blog__tag">Presupuesto</span>
+            <h3>Presupuesto mensual inteligente</h3>
+            <p>Crea un presupuesto mensual que funcione para ti usando la regla 50/30/20 adaptada a RD.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSENSE SLOT 4 -->
+  <div class="adsense"><!-- ADSENSE SLOT - AFTER BLOG --></div>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <h2 class="section__title">Contacto</h2>
+      <p class="section__subtitle">¿Preguntas o sugerencias? Escríbenos</p>
+
+      <form class="contacto__form" id="contactForm">
+        <div class="form-group">
+          <label for="contactNombre">Nombre</label>
+          <input type="text" id="contactNombre" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Correo electrónico</label>
+          <input type="email" id="contactEmail" required placeholder="correo@ejemplo.com">
+        </div>
+        <div class="form-group">
+          <label for="contactMensaje">Mensaje</label>
+          <textarea id="contactMensaje" rows="4" required placeholder="Escribe tu mensaje..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__col">
+        <a href="#" class="footer__logo">FinanzasRD</a>
+        <p class="footer__desc">Tus herramientas financieras de confianza en República Dominicana.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#calculadoras">Calculadoras</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#comparador">Comparador</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" id="privacyLink">Política de privacidad</a></li>
+          <li><a href="#" id="termsLink">Términos y condiciones</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:info@finanzasrd.com">info@finanzasrd.com</a></li>
+          <li><a href="#">Santo Domingo, RD</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; 2026 FinanzasRD. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MODALS ===== -->
+  <div class="modal" id="privacyModal">
+    <div class="modal__content">
+      <button class="modal__close" id="privacyClose">&times;</button>
+      <h2>Política de Privacidad</h2>
+      <p>En FinanzasRD respetamos tu privacidad. No recopilamos información personal sin tu consentimiento. Los datos ingresados en las calculadoras se procesan localmente en tu navegador y no se almacenan ni comparten con terceros.</p>
+      <p>Podemos usar cookies de terceros (como Google AdSense) para mostrar anuncios personalizados. Al usar este sitio, aceptas nuestra política de privacidad.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="termsModal">
+    <div class="modal__content">
+      <button class="modal__close" id="termsClose">&times;</button>
+      <h2>Términos y Condiciones</h2>
+      <p>Las herramientas financieras proporcionadas en FinanzasRD son solo para fines informativos y educativos. Los cálculos son aproximados y no constituyen asesoría financiera profesional. Siempre consulta con un experto antes de tomar decisiones financieras importantes.</p>
+      <p>El uso de este sitio web implica la aceptación de estos términos.</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
