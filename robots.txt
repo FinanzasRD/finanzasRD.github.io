@@ -1,0 +1,7 @@
+# Robots.txt para FinanzasRD
+# Permite a todos los bots acceder al sitio completo
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://finanzasrd.github.io/sitemap.xml
