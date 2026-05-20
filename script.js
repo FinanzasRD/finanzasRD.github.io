@@ -64,6 +64,13 @@ qa('.calcular-btn').forEach(function(b){
         q('#prestamoResult .result-value').textContent=fmtM(calcPrestamo(m2,i,p));
         break;
       }
+      case'presupuesto':{
+        var i=parseFloat(id('presupIngreso').value)||0;
+        id('presupNec').textContent=fmtM(i*0.5);
+        id('presupDes').textContent=fmtM(i*0.3);
+        id('presupAho').textContent=fmtM(i*0.2);
+        break;
+      }
       case'conversor':{
         var d=parseFloat(id('convDolares').value)||0,tr=parseFloat(id('convTasa').value)||0;
         q('#convResult .result-value').textContent=fmtD(calcConv(d,tr));
@@ -94,6 +101,8 @@ function runInit(){
   q('#prestamoResult .result-value').textContent=fmtM(calcPrestamo(pM,pI,pP));
   var dD=parseFloat(id('convDolares').value)||0,dT=parseFloat(id('convTasa').value)||0;
   q('#convResult .result-value').textContent=fmtD(calcConv(dD,dT));
+  var pI=parseFloat(id('presupIngreso').value)||0;
+  if(pI){id('presupNec').textContent=fmtM(pI*0.5);id('presupDes').textContent=fmtM(pI*0.3);id('presupAho').textContent=fmtM(pI*0.2)}
 }
 runInit();
 
@@ -178,5 +187,18 @@ d.addEventListener('DOMContentLoaded',function(){
     });
     imgs.forEach(function(img){io.observe(img)});
   }
+
+  var catBtns=d.querySelectorAll('.blog__cat-btn');
+  var blogCards=d.querySelectorAll('.blog__card[data-cat]');
+  catBtns.forEach(function(btn){
+    addE(btn,'click',function(){
+      catBtns.forEach(function(b){b.classList.remove('blog__cat-btn--active')});
+      btn.classList.add('blog__cat-btn--active');
+      var cat=btn.dataset.cat;
+      blogCards.forEach(function(card){
+        card.style.display=(cat==='all'||card.dataset.cat===cat)?'block':'none';
+      });
+    });
+  });
 });
 })();
