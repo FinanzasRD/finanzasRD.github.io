@@ -192,7 +192,7 @@ input,textarea,button{font-family:inherit;font-size:1rem}
 .card:hover{box-shadow:0 12px 48px rgba(0,0,0,0.12);transform:translateY(-6px)}
 .blog__body h3{font-size:1.15rem;line-height:1.4}
 .blog__body p{font-size:.85rem;color:var(--text-light);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.blog__img{font-size:2.5rem;padding:1.25rem 1.5rem 0;transition:transform .3s ease}
+.blog__img{width:100%;height:140px;object-fit:contain;display:block;transition:transform .3s ease}
 .blog__card:hover .blog__img{transform:scale(1.1)}
 .calcular-btn{position:relative;overflow:hidden}
 .calcular-btn::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,0.2);transform:translate(-50%,-50%);transition:width .6s,height .6s}
