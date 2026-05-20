@@ -172,6 +172,21 @@ if(cc&&!localStorage.getItem('cookieConsent')){
   });
 }
 
+var tasasMonto=id('tasasMonto');
+if(tasasMonto){
+  function updTasas(){
+    var m=parseFloat(tasasMonto.value)||0;
+    d.querySelectorAll('.tasas-ganancia').forEach(function(el){
+      var txt=el.textContent.trim();
+      if(txt==='—')return;
+      var pct=parseFloat(txt.replace(/[RD$\s,]/g,''));
+      if(pct&&m)el.textContent='RD$ '+Math.round(m*pct/100).toLocaleString('es-DO');
+    });
+  }
+  addE(tasasMonto,'input',updTasas);
+  updTasas();
+}
+
 d.addEventListener('DOMContentLoaded',function(){
   var imgs=d.querySelectorAll('img[loading="lazy"]');
   if('loading' in HTMLImageElement.prototype){}
