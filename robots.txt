@@ -1,7 +1,45 @@
-# Robots.txt para FinanzasRD
-# Permite a todos los bots acceder al sitio completo
+# Robots.txt optimizado para FinanzasRD
+# Fecha: 2026-05-18
+
 User-agent: *
 Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /blog/*?print=1
+Disallow: /blog/*?page=*
 
-# Sitemap
+# Allow Googlebot to index everything
+User-agent: Googlebot
+Allow: /
+
+# Allow Google AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Increase crawl rate for fresh content
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 5
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+# Sitemaps
 Sitemap: https://finanzasrd.github.io/sitemap.xml
+
+# Host
+Host: https://finanzasrd.github.io

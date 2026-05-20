@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A5C36"/>
+      <stop offset="100%" style="stop-color:#073d24"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4A843"/>
+      <stop offset="100%" style="stop-color:#c49a35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="100" r="400" fill="rgba(212,168,67,0.05)"/>
+  <circle cx="200" cy="500" r="300" fill="rgba(212,168,67,0.03)"/>
+  <text x="600" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#D4A843">FinanzasRD</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.9)">Herramientas Financieras para</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.9)">República Dominicana</text>
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">Calcula &bull; Ahorra &bull; Invierte &bull; Convierte</text>
+  <rect x="500" y="480" width="200" height="3" rx="1.5" fill="#D4A843"/>
+</svg>

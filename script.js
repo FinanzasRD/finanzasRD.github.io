@@ -1,311 +1,182 @@
-/* ============================================
-   FinanzasRD - JavaScript
-   Calculadoras, menú, modales, interacciones
-   ============================================ */
+(function(){'use strict';var d=document,w=window;
+function q(s){return d.querySelector(s)}
+function qa(s){return d.querySelectorAll(s)}
+function id(s){return d.getElementById(s)}
+function addE(el,ev,fn){if(el)el.addEventListener(ev,fn)}
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  // ==========================================
-  // MENÚ MÓVIL
-  // ==========================================
-  const toggle = document.getElementById('menuToggle');
-  const nav = document.getElementById('mainNav');
-  const links = nav.querySelectorAll('.header__link');
-
-  toggle.addEventListener('click', () => {
+var toggle=id('menuToggle'),nav=id('mainNav');
+if(toggle&&nav){
+  addE(toggle,'click',function(){
     toggle.classList.toggle('active');
     nav.classList.toggle('active');
+    toggle.setAttribute('aria-expanded',nav.classList.contains('active'));
   });
-
-  links.forEach(link => {
-    link.addEventListener('click', () => {
+  nav.querySelectorAll('.header__link').forEach(function(l){
+    addE(l,'click',function(){
       toggle.classList.remove('active');
       nav.classList.remove('active');
+      toggle.setAttribute('aria-expanded','false');
     });
   });
+}
 
-  // ==========================================
-  // HEADER SCROLL EFFECT
-  // ==========================================
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.style.boxShadow = '0 2px 24px rgba(0,0,0,0.08)';
-    } else {
-      header.style.boxShadow = 'none';
-    }
-  });
-
-  // ==========================================
-  // CALCULADORA 1: Ahorro Mensual
-  // ==========================================
-  function calcAhorro(monto, meses) {
-    return monto * meses;
-  }
-
-  // ==========================================
-  // CALCULADORA 2: Interés Compuesto
-  // Fórmula: M = C(1+r)^n + A * [((1+r)^n - 1) / r]
-  // donde r = tasa mensual, n = meses totales
-  // ==========================================
-  function calcInteresCompuesto(capital, aporte, tasaAnual, anios) {
-    const r = tasaAnual / 100 / 12;
-    const n = anios * 12;
-    if (r === 0) {
-      return capital + aporte * n;
-    }
-    const futuroCapital = capital * Math.pow(1 + r, n);
-    const futuroAportes = aporte * ((Math.pow(1 + r, n) - 1) / r);
-    return futuroCapital + futuroAportes;
-  }
-
-  // ==========================================
-  // CALCULADORA 3: Préstamo (Cuota Fija)
-  // Fórmula francesa:
-  // Cuota = P * [r(1+r)^n] / [(1+r)^n - 1]
-  // donde r = tasa mensual, n = meses
-  // ==========================================
-  function calcPrestamo(monto, interesAnual, meses) {
-    const r = interesAnual / 100 / 12;
-    if (r === 0) {
-      return monto / meses;
-    }
-    const factor = Math.pow(1 + r, meses);
-    return monto * (r * factor) / (factor - 1);
-  }
-
-  // ==========================================
-  // CALCULADORA 4: Conversor Dólar
-  // ==========================================
-  function calcConversor(dolares, tasa) {
-    return dolares * tasa;
-  }
-
-  // ==========================================
-  // FORMATO DE MONEDA
-  // ==========================================
-  function formatMoney(valor) {
-    return 'RD$ ' + Math.round(valor).toLocaleString('es-DO');
-  }
-
-  function formatMoneyShort(valor) {
-    if (valor >= 1000000) {
-      return 'RD$ ' + (valor / 1000000).toFixed(2) + 'M';
-    }
-    return 'RD$ ' + Math.round(valor).toLocaleString('es-DO');
-  }
-
-  // ==========================================
-  // CONECTAR BOTONES
-  // ==========================================
-  document.querySelectorAll('.calcular-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const type = btn.dataset.calc;
-
-      switch (type) {
-        case 'ahorro': {
-          const monto = parseFloat(document.getElementById('ahorroMonto').value) || 0;
-          const meses = parseInt(document.getElementById('ahorroMeses').value) || 1;
-          const total = calcAhorro(monto, meses);
-          document.querySelector('#ahorroResult .result-value').textContent = formatMoney(total);
-          break;
-        }
-
-        case 'compuesto': {
-          const capital = parseFloat(document.getElementById('compCapital').value) || 0;
-          const aporte = parseFloat(document.getElementById('compAporte').value) || 0;
-          const tasa = parseFloat(document.getElementById('compTasa').value) || 0;
-          const anios = parseInt(document.getElementById('compAnios').value) || 1;
-          const total = calcInteresCompuesto(capital, aporte, tasa, anios);
-          document.querySelector('#compResult .result-value').textContent = formatMoneyShort(total);
-          break;
-        }
-
-        case 'prestamo': {
-          const monto = parseFloat(document.getElementById('prestamoMonto').value) || 0;
-          const interes = parseFloat(document.getElementById('prestamoInteres').value) || 0;
-          const plazo = parseInt(document.getElementById('prestamoPlazo').value) || 1;
-          const cuota = calcPrestamo(monto, interes, plazo);
-          document.querySelector('#prestamoResult .result-value').textContent = formatMoney(cuota);
-          break;
-        }
-
-        case 'conversor': {
-          const dolares = parseFloat(document.getElementById('convDolares').value) || 0;
-          const tasa = parseFloat(document.getElementById('convTasa').value) || 0;
-          const total = calcConversor(dolares, tasa);
-          document.querySelector('#convResult .result-value').textContent = 'RD$ ' + total.toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-          break;
-        }
-      }
-    });
-  });
-
-  // ==========================================
-  // TASA USD/DOP EN VIVO
-  // ==========================================
-  function fetchLiveRate() {
-    const tasaInput = document.getElementById('convTasa');
-    fetch('https://open.er-api.com/v6/latest/USD')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.rates && data.rates.DOP) {
-          const rate = data.rates.DOP;
-          tasaInput.value = rate.toFixed(2);
-          // Actualizar resultado
-          const dolares = parseFloat(document.getElementById('convDolares').value) || 0;
-          const total = calcConversor(dolares, rate);
-          document.querySelector('#convResult .result-value').textContent = 'RD$ ' + total.toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-      })
-      .catch(() => {
-        // Si falla la API, se mantiene el valor por defecto
-      });
-  }
-
-  fetchLiveRate();
-
-  // ==========================================
-  // CÁLCULOS INICIALES (al cargar)
-  // ==========================================
-  function runInitialCalculations() {
-    // Ahorro
-    const aMonto = parseFloat(document.getElementById('ahorroMonto').value) || 0;
-    const aMeses = parseInt(document.getElementById('ahorroMeses').value) || 1;
-    document.querySelector('#ahorroResult .result-value').textContent = formatMoney(calcAhorro(aMonto, aMeses));
-
-    // Compuesto
-    const cCapital = parseFloat(document.getElementById('compCapital').value) || 0;
-    const cAporte = parseFloat(document.getElementById('compAporte').value) || 0;
-    const cTasa = parseFloat(document.getElementById('compTasa').value) || 0;
-    const cAnios = parseInt(document.getElementById('compAnios').value) || 1;
-    document.querySelector('#compResult .result-value').textContent = formatMoneyShort(calcInteresCompuesto(cCapital, cAporte, cTasa, cAnios));
-
-    // Préstamo
-    const pMonto = parseFloat(document.getElementById('prestamoMonto').value) || 0;
-    const pInteres = parseFloat(document.getElementById('prestamoInteres').value) || 0;
-    const pPlazo = parseInt(document.getElementById('prestamoPlazo').value) || 1;
-    document.querySelector('#prestamoResult .result-value').textContent = formatMoney(calcPrestamo(pMonto, pInteres, pPlazo));
-
-    // Conversor
-    const dDolares = parseFloat(document.getElementById('convDolares').value) || 0;
-    const dTasa = parseFloat(document.getElementById('convTasa').value) || 0;
-    document.querySelector('#convResult .result-value').textContent = 'RD$ ' + calcConversor(dDolares, dTasa).toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  runInitialCalculations();
-
-  // Recalcular al cambiar inputs (Enter)
-  document.querySelectorAll('.calculadora__form input').forEach(input => {
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const btn = input.closest('.calculadora__form').querySelector('.calcular-btn');
-        if (btn) btn.click();
-      }
-    });
-  });
-
-  // ==========================================
-  // COMPARADOR DE COOPERATIVAS
-  // ==========================================
-  const coopBody = document.getElementById('coopBody');
-  const addBtn = document.getElementById('addCoopBtn');
-
-  function addCoopRow(nombre = '', tasa = '', plazo = '', beneficio = '') {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><input type="text" value="${nombre}" class="coop-input" placeholder="Nombre"></td>
-      <td><input type="number" value="${tasa}" class="coop-input" step="0.1" placeholder="0"></td>
-      <td><input type="number" value="${plazo}" class="coop-input" placeholder="0"></td>
-      <td><input type="number" value="${beneficio}" class="coop-input" step="100" placeholder="0"></td>
-      <td><button class="btn-delete" aria-label="Eliminar">✕</button></td>
-    `;
-    tr.querySelector('.btn-delete').addEventListener('click', () => {
-      tr.remove();
-    });
-    coopBody.appendChild(tr);
-  }
-
-  // Delete buttons for existing rows
-  document.querySelectorAll('.btn-delete').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('tr').remove();
-    });
-  });
-
-  addBtn.addEventListener('click', () => {
-    addCoopRow('', '', '', '');
-  });
-
-  // ==========================================
-  // MODALES (Privacidad / Términos)
-  // ==========================================
-  const privacyModal = document.getElementById('privacyModal');
-  const termsModal = document.getElementById('termsModal');
-  const overlay = document.getElementById('modalOverlay');
-
-  function openModal(modal) {
-    modal.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeAllModals() {
-    privacyModal.classList.remove('active');
-    termsModal.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('privacyLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    openModal(privacyModal);
-  });
-
-  document.getElementById('termsLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    openModal(termsModal);
-  });
-
-  document.getElementById('privacyClose').addEventListener('click', closeAllModals);
-  document.getElementById('termsClose').addEventListener('click', closeAllModals);
-  overlay.addEventListener('click', closeAllModals);
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeAllModals();
-  });
-
-  // ==========================================
-  // FORMULARIO DE CONTACTO
-  // ==========================================
-  const contactForm = document.getElementById('contactForm');
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nombre = document.getElementById('contactNombre').value.trim();
-    const email = document.getElementById('contactEmail').value.trim();
-    const mensaje = document.getElementById('contactMensaje').value.trim();
-
-    if (nombre && email && mensaje) {
-      alert('✓ Mensaje enviado con éxito. Te responderemos pronto.');
-      contactForm.reset();
-    } else {
-      alert('Por favor completa todos los campos.');
-    }
-  });
-
-  // ==========================================
-  // SMOOTH SCROLL (fallback si no soporta scroll-behavior)
-  // ==========================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
+var header=id('header');
+addE(w,'scroll',function(){
+  header.style.boxShadow=w.scrollY>50?'0 2px 24px rgba(0,0,0,0.08)':'none';
 });
+
+function calcAhorro(m,m2){return m*m2}
+function calcCompuesto(c,ap,t,a){
+  var r=t/100/12,n=a*12;
+  if(r===0)return c+ap*n;
+  return c*Math.pow(1+r,n)+ap*((Math.pow(1+r,n)-1)/r);
+}
+function calcPrestamo(m,i,n){
+  var r=i/100/12;
+  if(r===0)return m/n;
+  var f=Math.pow(1+r,n);
+  return m*(r*f)/(f-1);
+}
+function calcConv(d,t){return d*t}
+
+function fmtM(v){return 'RD$ '+Math.round(v).toLocaleString('es-DO')}
+function fmtMS(v){
+  if(v>=1e6)return 'RD$ '+(v/1e6).toFixed(2)+'M';
+  return 'RD$ '+Math.round(v).toLocaleString('es-DO');
+}
+function fmtD(v){return 'RD$ '+v.toLocaleString('es-DO',{minimumFractionDigits:2,maximumFractionDigits:2})}
+
+qa('.calcular-btn').forEach(function(b){
+  addE(b,'click',function(){
+    switch(b.dataset.calc){
+      case'ahorro':{
+        var m=parseFloat(id('ahorroMonto').value)||0,mes=parseInt(id('ahorroMeses').value)||1;
+        q('#ahorroResult .result-value').textContent=fmtM(calcAhorro(m,mes));
+        break;
+      }
+      case'compuesto':{
+        var c=parseFloat(id('compCapital').value)||0,ap=parseFloat(id('compAporte').value)||0,t=parseFloat(id('compTasa').value)||0,a=parseInt(id('compAnios').value)||1;
+        q('#compResult .result-value').textContent=fmtMS(calcCompuesto(c,ap,t,a));
+        break;
+      }
+      case'prestamo':{
+        var m2=parseFloat(id('prestamoMonto').value)||0,i=parseFloat(id('prestamoInteres').value)||0,p=parseInt(id('prestamoPlazo').value)||1;
+        q('#prestamoResult .result-value').textContent=fmtM(calcPrestamo(m2,i,p));
+        break;
+      }
+      case'conversor':{
+        var d=parseFloat(id('convDolares').value)||0,tr=parseFloat(id('convTasa').value)||0;
+        q('#convResult .result-value').textContent=fmtD(calcConv(d,tr));
+        break;
+      }
+    }
+  });
+});
+
+function fetchLiveRate(){
+  var inp=id('convTasa');
+  fetch('https://open.er-api.com/v6/latest/USD').then(function(r){return r.json()}).then(function(d){
+    if(d&&d.rates&&d.rates.DOP){
+      inp.value=d.rates.DOP.toFixed(2);
+      var dl=parseFloat(id('convDolares').value)||0;
+      q('#convResult .result-value').textContent=fmtD(calcConv(dl,d.rates.DOP));
+    }
+  }).catch(function(){});
+}
+fetchLiveRate();
+
+function runInit(){
+  var aM=parseFloat(id('ahorroMonto').value)||0,aMes=parseInt(id('ahorroMeses').value)||1;
+  q('#ahorroResult .result-value').textContent=fmtM(calcAhorro(aM,aMes));
+  var cC=parseFloat(id('compCapital').value)||0,cA=parseFloat(id('compAporte').value)||0,cT=parseFloat(id('compTasa').value)||0,cAn=parseInt(id('compAnios').value)||1;
+  q('#compResult .result-value').textContent=fmtMS(calcCompuesto(cC,cA,cT,cAn));
+  var pM=parseFloat(id('prestamoMonto').value)||0,pI=parseFloat(id('prestamoInteres').value)||0,pP=parseInt(id('prestamoPlazo').value)||1;
+  q('#prestamoResult .result-value').textContent=fmtM(calcPrestamo(pM,pI,pP));
+  var dD=parseFloat(id('convDolares').value)||0,dT=parseFloat(id('convTasa').value)||0;
+  q('#convResult .result-value').textContent=fmtD(calcConv(dD,dT));
+}
+runInit();
+
+qa('.calculadora__form input').forEach(function(inp){
+  addE(inp,'keydown',function(e){
+    if(e.key==='Enter'){
+      var btn=inp.closest('.calculadora__form').querySelector('.calcular-btn');
+      if(btn)btn.click();
+    }
+  });
+});
+
+var coopBody=id('coopBody'),addBtn=id('addCoopBtn');
+function addRow(n,t,p,b){
+  var tr=d.createElement('tr');
+  tr.innerHTML='<td><input type="text" value="'+n+'" class="coop-input" placeholder="Nombre" aria-label="Nombre de cooperativa"></td><td><input type="number" value="'+t+'" class="coop-input" step="0.1" placeholder="0" aria-label="Tasa de inter\u00e9s"></td><td><input type="number" value="'+p+'" class="coop-input" placeholder="0" aria-label="Plazo en meses"></td><td><input type="number" value="'+b+'" class="coop-input" step="100" placeholder="0" aria-label="Beneficio en RD$"></td><td><button class="btn-delete" aria-label="Eliminar cooperativa">\u2715</button></td>';
+  tr.querySelector('.btn-delete').addEventListener('click',function(){tr.remove()});
+  coopBody.appendChild(tr);
+}
+qa('.btn-delete').forEach(function(btn){
+  addE(btn,'click',function(){btn.closest('tr').remove()});
+});
+addE(addBtn,'click',function(){addRow('','','','')});
+
+var pMod=id('privacyModal'),tMod=id('termsModal'),ov=id('modalOverlay');
+function openM(m){m.classList.add('active');ov.classList.add('active');d.body.style.overflow='hidden'}
+function closeAll(){pMod.classList.remove('active');tMod.classList.remove('active');ov.classList.remove('active');d.body.style.overflow=''}
+addE(id('privacyLink'),'click',function(e){e.preventDefault();openM(pMod)});
+addE(id('termsLink'),'click',function(e){e.preventDefault();openM(tMod)});
+addE(id('privacyClose'),'click',closeAll);
+addE(id('termsClose'),'click',closeAll);
+addE(ov,'click',closeAll);
+addE(d,'keydown',function(e){if(e.key==='Escape')closeAll()});
+
+var form=id('contactForm');
+addE(form,'submit',function(e){
+  e.preventDefault();
+  var n=id('contactNombre').value.trim(),em=id('contactEmail').value.trim(),msg=id('contactMensaje').value.trim();
+  if(n&&em&&msg){
+    fetch(form.getAttribute('action'),{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}}).then(function(){alert('\u2713 Mensaje enviado con \u00e9xito. Te responderemos pronto.');form.reset()}).catch(function(){alert('Error al enviar. Intenta de nuevo.');});
+  }else alert('Por favor completa todos los campos.');
+});
+
+qa('a[href^="#"]').forEach(function(a){
+  addE(a,'click',function(e){
+    var h=this.getAttribute('href');
+    if(h==='#')return;
+    e.preventDefault();
+    var t=q(h);
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(function(){});
+}
+
+var cc=id('cookieConsent');
+if(cc&&!localStorage.getItem('cookieConsent')){
+  setTimeout(function(){cc.classList.add('show');},500);
+  addE(id('cookieAccept'),'click',function(){
+    localStorage.setItem('cookieConsent','accepted');
+    cc.classList.remove('show');
+  });
+  addE(id('cookieMore'),'click',function(){
+    w.location.href='privacidad.html';
+  });
+}
+
+d.addEventListener('DOMContentLoaded',function(){
+  var imgs=d.querySelectorAll('img[loading="lazy"]');
+  if('loading' in HTMLImageElement.prototype){}
+  else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var img=e.target;
+          img.src=img.dataset.src;
+          io.unobserve(img);
+        }
+      });
+    });
+    imgs.forEach(function(img){io.observe(img)});
+  }
+});
+})();

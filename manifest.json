@@ -1,0 +1,21 @@
+{
+  "name": "FinanzasRD - Herramientas Financieras para RD",
+  "short_name": "FinanzasRD",
+  "description": "Calcula préstamos, ahorro e inversiones. Conversor DOP/USD en vivo. Blog de educación financiera para República Dominicana.",
+  "start_url": "https://finanzasrd.github.io/",
+  "scope": "https://finanzasrd.github.io/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0A5C36",
+  "background_color": "#f8f9fa",
+  "categories": ["finance", "education", "tools"],
+  "lang": "es-DO",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💰%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
