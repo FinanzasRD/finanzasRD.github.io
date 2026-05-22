@@ -7,8 +7,6 @@ Disallow: /private/
 Disallow: /admin/
 Disallow: /tmp/
 Disallow: /temp/
-Disallow: /*.json$
-Disallow: /*.xml$
 Disallow: /blog/*?print=1
 Disallow: /blog/*?page=*
 
