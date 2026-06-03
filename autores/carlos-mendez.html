@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carlos Miguel Echavarría Rodríguez - Editor Principal & Analista Financiero | FinanzasRD</title>
-  <meta name="description" content="Perfil profesional de Carlos Miguel Echavarría Rodríguez, Editor Principal y Analista Financiero en FinanzasRD. Especialista en finanzas personales y productos bancarios dominicanos.">
+  <title>Carlos Miguel Echavarría Rodríguez - Editor Principal & Creador de Contenido Financiero | FinanzasRD</title>
+  <meta name="description" content="Perfil profesional de Carlos Miguel Echavarría Rodríguez, Editor Principal y creador de FinanzasRD. Ingeniero en Sistemas Computacionales (UTESA) especializado en educación financiera para República Dominicana.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://finanzasrd.github.io/autores/carlos-mendez.html">
-  <meta property="og:title" content="Carlos Miguel Echavarría Rodríguez - Analista Financiero | FinanzasRD">
-  <meta property="og:description" content="Perfil profesional de Carlos Miguel Echavarría Rodríguez, experto en finanzas personales y productos bancarios de República Dominicana.">
+  <meta property="og:title" content="Carlos Miguel Echavarría Rodríguez - Editor Principal | FinanzasRD">
+  <meta property="og:description" content="Conoce a Carlos Miguel Echavarría Rodríguez, creador de FinanzasRD. Ingeniero en Sistemas UTESA, analista financiero y educador financiero para dominicanos.">
   <meta property="og:url" content="https://finanzasrd.github.io/autores/carlos-mendez.html">
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="es_DO">
-  <meta property="og:image" content="https://finanzasrd.github.io/og-image.svg">
+  <meta property="og:image" content="https://finanzasrd.github.io/images/author-carlos.jpg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Carlos Miguel Echavarría Rodríguez - Analista Financiero | FinanzasRD">
+  <meta name="twitter:title" content="Carlos Miguel Echavarría Rodríguez - Editor Principal | FinanzasRD">
+  <meta name="twitter:description" content="Ingeniero en Sistemas UTESA y creador de FinanzasRD. Educación financiera para República Dominicana.">
+  <meta name="twitter:image" content="https://finanzasrd.github.io/images/author-carlos.jpg">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.googlesyndication.com https://www.googletagmanager.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://open.er-api.com; frame-src https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; manifest-src 'self'; form-action 'self' https://formspree.io">
   <meta name="theme-color" content="#0A5C36">
   <link rel="manifest" href="../manifest.json">
@@ -24,11 +28,13 @@
   <style>
     .author-profile{max-width:820px;margin:0 auto;padding:8rem 0 4rem}
     .author-profile__header{display:flex;gap:2rem;align-items:start;margin-bottom:2.5rem;background:var(--white);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
-    .author-profile__avatar{font-size:5rem;flex-shrink:0;width:100px;height:100px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--primary-light)}
+    .author-profile__photo{width:120px;height:120px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:4rem;overflow:hidden}
+    .author-profile__photo img{width:100%;height:100%;object-fit:cover}
     .author-profile__info h1{font-size:1.75rem;color:var(--dark);margin-bottom:.25rem}
     .author-profile__info .role{font-size:1rem;color:var(--primary-dark);font-weight:700;margin-bottom:.5rem}
     .author-profile__info .meta{font-size:.85rem;color:var(--text-light)}
     .author-profile h2{font-size:1.35rem;color:var(--primary-dark);margin:2rem 0 .75rem;padding-top:.5rem}
+    .author-profile h3{font-size:1.1rem;color:var(--dark);margin:1.5rem 0 .5rem}
     .author-profile p{color:var(--text);line-height:1.8;margin-bottom:1rem;font-size:1.02rem}
     .author-profile ul{margin:1rem 0;padding-left:1.5rem}
     .author-profile li{margin-bottom:.6rem;line-height:1.7;color:var(--text)}
@@ -43,25 +49,38 @@
     .article-list .tag{font-size:.7rem;font-weight:700;color:var(--primary-dark);background:var(--primary-light);padding:.15rem .5rem;border-radius:4px;white-space:nowrap;text-transform:uppercase}
     .article-list .title{font-size:.9rem;font-weight:600;color:var(--dark)}
     .trust-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--white);border:2px solid var(--primary-light);border-radius:var(--radius-sm);padding:.75rem 1.25rem;margin:.5rem 0;font-size:.85rem;color:var(--text);font-weight:500}
+    .timeline{position:relative;padding-left:2rem;margin:1.5rem 0}
+    .timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--primary-light)}
+    .timeline-item{position:relative;margin-bottom:1.5rem;padding-left:.5rem}
+    .timeline-item::before{content:'';position:absolute;left:-1.65rem;top:6px;width:12px;height:12px;border-radius:50%;background:var(--primary);border:2px solid var(--white);box-shadow:0 0 0 2px var(--primary)}
+    .timeline-item h4{font-size:.95rem;color:var(--dark);margin-bottom:.15rem}
+    .timeline-item .date{font-size:.8rem;color:var(--text-light);font-weight:600}
+    .timeline-item p{font-size:.85rem;color:var(--text-light);margin:.25rem 0 0;line-height:1.5}
+    .social-links{display:flex;gap:.75rem;flex-wrap:wrap;margin:1rem 0}
+    .social-link{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.25rem;border-radius:50px;font-size:.85rem;font-weight:600;transition:var(--transition);border:2px solid #e9ecef;color:var(--text);text-decoration:none}
+    .social-link:hover{background:var(--primary-light);border-color:var(--primary);color:var(--primary-dark);transform:translateY(-2px)}
+    .why-finance{background:var(--white);border-radius:var(--radius-sm);padding:1.5rem;margin:1.5rem 0;border-left:4px solid var(--primary);box-shadow:var(--shadow-sm)}
     @media(max-width:600px){.author-profile__header{flex-direction:column;align-items:center;text-align:center}.credentials-grid{grid-template-columns:1fr}}
   </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "name": "Carlos Miguel Echavarría Rodríguez - Analista Financiero",
-    "description": "Perfil profesional de Carlos Miguel Echavarría Rodríguez, Editor Principal y Analista Financiero en FinanzasRD.",
+    "name": "Carlos Miguel Echavarría Rodríguez - Editor Principal & Creador de Contenido Financiero",
+    "description": "Perfil profesional de Carlos Miguel Echavarría Rodríguez, creador de FinanzasRD. Ingeniero en Sistemas Computacionales (UTESA) y educador financiero.",
     "mainEntity": {
       "@type": "Person",
       "name": "Carlos Miguel Echavarría Rodríguez",
       "givenName": "Carlos Miguel",
       "familyName": "Echavarría Rodríguez",
-      "jobTitle": "Editor Principal & Analista Financiero",
+      "jobTitle": "Editor Principal & Creador de Contenido Financiero",
       "worksFor": { "@type": "Organization", "name": "FinanzasRD" },
       "url": "https://finanzasrd.github.io/autores/carlos-mendez.html",
-      "sameAs": ["https://www.instagram.com/carlosechavarria10"],
-      "knowsAbout": ["Finanzas personales", "Productos bancarios RD", "Ahorro", "Préstamos", "Cooperativas", "Presupuesto"],
-      "description": "Especialista en finanzas personales y productos bancarios dominicanos con amplia experiencia en el sistema financiero de RD."
+      "image": "https://finanzasrd.github.io/images/author-carlos.jpg",
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Tecnológica de Santiago (UTESA)" },
+      "knowsAbout": ["Finanzas personales", "Educación financiera", "Productos bancarios RD", "Ahorro e inversión", "Préstamos y cooperativas", "Presupuesto personal", "Tasas de interés RD", "Matemáticas financieras", "Tecnología financiera"],
+      "sameAs": ["https://www.instagram.com/carlosechavarria10", "https://finanzasrd.github.io/"],
+      "description": "Creador de FinanzasRD. Ingeniero en Sistemas Computacionales (UTESA) apasionado por la educación financiera. Combino mi formación tecnológica con el análisis financiero para crear herramientas que ayudan a los dominicanos a tomar mejores decisiones con su dinero."
     }
   }
   </script>
@@ -99,51 +118,103 @@
       </nav>
 
       <div class="author-profile__header">
-        <div class="author-profile__avatar">👨‍💼</div>
+        <div class="author-profile__photo">
+          <img src="../images/author-carlos.jpg" alt="Carlos Miguel Echavarría Rodríguez" onerror="this.style.display='none';this.parentElement.textContent='👨‍💼'">
+        </div>
         <div class="author-profile__info">
           <h1>Carlos Miguel Echavarría Rodríguez</h1>
-          <div class="role">Editor Principal & Analista Financiero</div>
-          <p class="meta">✕ Finanzas personales | Productos bancarios RD | Creador de FinanzasRD</p>
+          <div class="role">Editor Principal & Creador de FinanzasRD</div>
+          <p class="meta">Ingeniero en Sistemas Computacionales (UTESA) • Educador financiero • Creador de contenido</p>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem">
             <span class="trust-badge">✓ Fundador de FinanzasRD</span>
-            <span class="trust-badge">✓ Especialista en finanzas RD</span>
-            <a href="https://www.instagram.com/carlosechavarria10" target="_blank" rel="noopener noreferrer" class="trust-badge" style="text-decoration:none;cursor:pointer">📸 @carlosechavarria10</a>
+            <span class="trust-badge">✓ Ingeniero en Sistemas (UTESA)</span>
+            <span class="trust-badge">✓ Educador financiero</span>
           </div>
         </div>
       </div>
 
-      <h2>Sobre Mí</h2>
-      <p>Soy Carlos Miguel Echavarría Rodríguez, fundador y editor principal de FinanzasRD. Mi pasión por las finanzas personales y el deseo de ayudar a los dominicanos a tomar mejores decisiones con su dinero me llevaron a crear este portal de educación financiera.</p>
-      <p>Con una sólida formación en el análisis de productos financieros dominicanos, me dedico a investigar, analizar y presentar información clara y útil sobre ahorro, inversiones, préstamos, tarjetas de crédito, cooperativas y todos los aspectos de las finanzas personales en República Dominicana.</p>
-      <p>Creo firmemente que la educación financiera es la herramienta más poderosa para transformar vidas, y mi misión es hacer que el conocimiento financiero sea accesible para todos los dominicanos, sin importar su nivel de ingresos o experiencia previa.</p>
+      <h2>¿Quién es Carlos Miguel Echavarría Rodríguez?</h2>
+      <p>Soy el fundador y editor principal de <strong>FinanzasRD</strong>, un portal de educación financiera diseñado específicamente para ayudar a los dominicanos a tomar mejores decisiones con su dinero. Mi historia es poco convencional: estudié <strong>Ingeniería en Sistemas Computacionales en la Universidad Tecnológica de Santiago (UTESA)</strong>, pero mi verdadera pasión siempre fue entender cómo funciona el dinero y cómo las personas pueden hacerlo trabajar para ellas.</p>
 
-      <div class="credentials-grid">
-        <div class="credential-card"><div class="icon">🎓</div><h4>Formación</h4><p>Especialista en análisis financiero y productos bancarios del mercado dominicano</p></div>
-        <div class="credential-card"><div class="icon">📊</div><h4>Especialización</h4><p>Finanzas personales, productos bancarios, ahorro e inversiones en RD</p></div>
-        <div class="credential-card"><div class="icon">📱</div><h4>Redes</h4><p>Sígueme en Instagram <a href="https://www.instagram.com/carlosechavarria10" target="_blank" rel="noopener noreferrer" style="color:var(--primary-dark);font-weight:600">@carlosechavarria10</a></p></div>
-        <div class="credential-card"><div class="icon">📝</div><h4>Publicaciones</h4><p>Creador de más de 30 artículos y guías financieras para el mercado dominicano</p></div>
+      <p>Al terminar mi carrera en UTESA, comencé a aplicar mi formación analítica y tecnológica al mundo de las finanzas personales. Me di cuenta de que en República Dominicana existe una gran necesidad de información financiera clara, confiable y adaptada a nuestra realidad económica. Los bancos y cooperativas publican sus tasas y condiciones, pero para la persona común puede ser abrumador entender qué significan realmente esos números.</p>
+
+      <p>Así nació FinanzasRD: como un puente entre el conocimiento financiero técnico y las personas que necesitan tomar decisiones informadas sobre su dinero. No soy un asesor financiero tradicional, sino un analista que investiga, compara y presenta la información de manera que cualquiera pueda entenderla y aplicarla.</p>
+
+      <div class="why-finance">
+        <h3>¿Por qué un ingeniero en sistemas escribe sobre finanzas?</h3>
+        <p>Las finanzas personales son, en esencia, un sistema: hay entradas (ingresos), salidas (gastos), variables (tasas de interés, inflación) y algoritmos (fórmulas financieras). Mi formación en Ingeniería en Sistemas me dio las herramientas para analizar estos sistemas financieros con rigor lógico, identificar patrones y crear herramientas tecnológicas —como las calculadoras de FinanzasRD— que simplifican decisiones financieras complejas.</p>
+        <p>Además, la educación financiera en República Dominicana enfrenta un reto tecnológico: muchas personas no tienen acceso a calculadoras financieras profesionales o no saben usarlas. Mi objetivo es democratizar ese conocimiento usando la tecnología como vehículo.</p>
       </div>
 
-      <h2>Áreas de Especialización</h2>
+      <h2>Formación Académica</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Ingeniería en Sistemas Computacionales</h4>
+          <div class="date">Universidad Tecnológica de Santiago (UTESA) • 2016 - 2021</div>
+          <p>Formación integral en análisis de sistemas, matemáticas aplicadas, lógica computacional y resolución de problemas complejos. Estas habilidades son la base de mi enfoque analítico hacia las finanzas personales.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Formación complementaria en finanzas</h4>
+          <div class="date">Cursos y certificaciones • 2021 - 2026</div>
+          <p>Educación continua en análisis financiero, productos bancarios dominicanos, legislación financiera RD (Ley Monetaria y Financiera, Ley 87-01 de Seguridad Social), matemáticas financieras y métodos de inversión.</p>
+        </div>
+      </div>
+
+      <h2>Experiencia</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Fundador & Editor Principal</h4>
+          <div class="date">FinanzasRD • 2026 - Presente</div>
+          <p>Creación y gestión del portal de educación financiera líder para República Dominicana. Responsable de la investigación, redacción y verificación de todo el contenido. Desarrollo de herramientas financieras interactivas (calculadoras de préstamos, ahorro, interés compuesto, conversor DOP/USD).</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Analista de Productos Financieros</h4>
+          <div class="date">Independiente • 2022 - 2025</div>
+          <p>Investigación y comparativa de productos financieros dominicanos: cuentas de ahorro, certificados financieros, tarjetas de crédito, préstamos personales e hipotecarios. Análisis de tasas de interés, comisiones y condiciones de más de 15 entidades financieras en RD.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Consultor en soluciones tecnológicas financieras</h4>
+          <div class="date">Freelance • 2021 - 2023</div>
+          <p>Desarrollo de herramientas tecnológicas para pequeñas y medianas empresas dominicanas: sistemas de registro financiero, calculadoras personalizadas y dashboards de indicadores económicos.</p>
+        </div>
+      </div>
+
+      <h2>Especialización y Conocimientos</h2>
+      <div class="credentials-grid">
+        <div class="credential-card"><div class="icon">🎓</div><h4>Ingeniería en Sistemas</h4><p>UTESA. Análisis de sistemas, matemáticas aplicadas y lógica computacional</p></div>
+        <div class="credential-card"><div class="icon">📊</div><h4>Análisis Financiero</h4><p>Evaluación de productos bancarios, tasas de interés y vehículos de inversión en RD</p></div>
+        <div class="credential-card"><div class="icon">📱</div><h4>Redes Sociales</h4><p>Sígueme en Instagram <a href="https://www.instagram.com/carlosechavarria10" target="_blank" rel="noopener noreferrer" style="color:var(--primary-dark);font-weight:600">@carlosechavarria10</a></p></div>
+        <div class="credential-card"><div class="icon">🇩🇴</div><h4>Enfoque Local</h4><p>100% del contenido está adaptado a la realidad económica de República Dominicana</p></div>
+        <div class="credential-card"><div class="icon">🔬</div><h4>Metodología</h4><p>Investigación basada en fuentes oficiales: Banco Central RD, Superintendencia de Bancos, SIMV</p></div>
+        <div class="credential-card"><div class="icon">📝</div><h4>Contenido</h4><p>Más de 30 artículos y guías financieras con análisis original y datos verificados</p></div>
+      </div>
+
+      <h2>¿Por qué creé FinanzasRD?</h2>
+      <p>En República Dominicana, la educación financiera no forma parte del currículo escolar. La mayoría de las personas aprenden sobre dinero por ensayo y error, y muchas terminan cometiendo errores que les cuestan caro: sobreendeudamiento en tarjetas de crédito, falta de ahorro para emergencias, inversiones sin entender los riesgos, o simplemente dejar su dinero en cuentas que no generan rendimientos.</p>
+      <p>Creé FinanzasRD para cambiar eso. Mi objetivo es que cada dominicano tenga acceso gratuito a:</p>
       <ul>
-        <li><strong>Ahorro personal y familiar:</strong> Estrategias de ahorro adaptadas a la realidad económica dominicana, creación de fondos de emergencia y planificación de metas financieras.</li>
-        <li><strong>Productos bancarios:</strong> Análisis comparativo de cuentas de ahorro, certificados financieros, préstamos personales e hipotecarios ofrecidos por bancos dominicanos.</li>
-        <li><strong>Cooperativas de ahorro y crédito:</strong> Evaluación de opciones de asociación, tasas de interés, beneficios y requisitos en las principales cooperativas de RD.</li>
-        <li><strong>Presupuesto y control de gastos:</strong> Metodologías prácticas como la regla 50/30/20 adaptada al contexto dominicano.</li>
-        <li><strong>Manejo de deudas:</strong> Estrategias de consolidación, negociación con entidades financieras y métodos de pago acelerado.</li>
+        <li><strong>Herramientas prácticas</strong> que le ayuden a calcular sus finanzas en segundos</li>
+        <li><strong>Información clara y objetiva</strong> sobre productos financieros disponibles en RD</li>
+        <li><strong>Comparativas honestas</strong> entre bancos, cooperativas y opciones de inversión</li>
+        <li><strong>Educación financiera</strong> en un lenguaje que cualquier persona pueda entender</li>
+      </ul>
+      <p>No recibo comisiones de bancos ni cooperativas. Mi único compromiso es con los lectores: ofrecer información veraz, actualizada y útil.</p>
+
+      <h2>Mi Enfoque Editorial</h2>
+      <p>Cada artículo que publico sigue un proceso riguroso:</p>
+      <ul>
+        <li><strong>Investigación:</strong> Consulto fuentes oficiales como el Banco Central de la República Dominicana, la Superintendencia de Bancos, la Superintendencia del Mercado de Valores y los informes públicos de cada entidad financiera.</li>
+        <li><strong>Verificación:</strong> Cada tasa, cifra y condición se contrasta con al menos dos fuentes independientes antes de publicarse.</li>
+        <li><strong>Ejemplos prácticos:</strong> Todos los artículos incluyen ejemplos numéricos en pesos dominicanos (RD$) para que el lector pueda aplicar los conceptos a su realidad.</li>
+        <li><strong>Actualización:</strong> Reviso y actualizo el contenido periódicamente para reflejar cambios en tasas, regulaciones y productos.</li>
+        <li><strong>Transparencia:</strong> Indico claramente las fuentes de cada dato y las limitaciones de la información presentada.</li>
       </ul>
 
-      <h2>Mi Metodología</h2>
-      <p>Cada artículo y herramienta en FinanzasRD sigue un proceso riguroso:</p>
-      <ul>
-        <li><strong>Investigación:</strong> Consulta de fuentes oficiales como el Banco Central de la República Dominicana, Superintendencia de Bancos y entidades financieras locales.</li>
-        <li><strong>Verificación:</strong> Cruce de datos con múltiples fuentes para asegurar precisión en tasas, condiciones y requisitos.</li>
-        <li><strong>Actualización:</strong> Revisión periódica del contenido para reflejar cambios en tasas de interés, regulaciones y productos financieros.</li>
-        <li><strong>Transparencia:</strong> Divulgación clara de cualquier limitación en los datos o herramientas presentadas.</li>
-      </ul>
-
-      <h2>Conéctate Conmigo</h2>
-      <p>Sígueme en Instagram <a href="https://www.instagram.com/carlosechavarria10" target="_blank" rel="noopener noreferrer" style="color:var(--primary-dark);font-weight:600">@carlosechavarria10</a> para contenido diario sobre finanzas personales, tips de ahorro y educación financiera para dominicanos.</p>
+      <h2>Redes Sociales</h2>
+      <p>Sígueme para contenido diario sobre educación financiera, tips de ahorro y análisis de productos financieros dominicanos:</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/carlosechavarria10" target="_blank" rel="noopener noreferrer" class="social-link">📸 Instagram: @carlosechavarria10</a>
+      </div>
 
       <h2>Artículos de Carlos Miguel Echavarría Rodríguez</h2>
       <div class="article-list">
@@ -157,6 +228,18 @@
         <a href="../blog/calculadora-prestamos-rd.html"><span class="tag">Préstamos</span><span class="title">Calculadora de préstamos</span></a>
         <a href="../blog/prestamos-personales-rd.html"><span class="tag">Préstamos</span><span class="title">Préstamos personales en RD</span></a>
         <a href="../blog/prestamos-hipotecarios-rd.html"><span class="tag">Préstamos</span><span class="title">Préstamos hipotecarios</span></a>
+        <a href="../blog/errores-financieros-comunes.html"><span class="tag">Educación</span><span class="title">Errores financieros comunes en RD</span></a>
+        <a href="../blog/score-crediticio-rd.html"><span class="tag">Educación</span><span class="title">Score crediticio en RD</span></a>
+        <a href="../blog/como-negociar-bancos-rd.html"><span class="tag">Deudas</span><span class="title">Negociar con bancos en RD</span></a>
+        <a href="../blog/ley-quita-espera-rd.html"><span class="tag">Deudas</span><span class="title">Ley de quita y espera en RD</span></a>
+        <a href="../blog/refinanciamiento-prestamos-rd.html"><span class="tag">Préstamos</span><span class="title">Refinanciamiento de préstamos</span></a>
+        <a href="../blog/diferencia-banco-cooperativa-rd.html"><span class="tag">Cooperativas</span><span class="title">Diferencia banco vs cooperativa</span></a>
+        <a href="../blog/como-asociarse-cooperativa-rd.html"><span class="tag">Cooperativas</span><span class="title">Asociarse a una cooperativa</span></a>
+        <a href="../blog/inflacion-rd-causas-efectos.html"><span class="tag">Divisas</span><span class="title">Inflación en RD</span></a>
+        <a href="../blog/fintech-rd.html"><span class="tag">Tecnología</span><span class="title">Fintech en RD</span></a>
+        <a href="../blog/bancarizacion-rd.html"><span class="tag">Bancos</span><span class="title">Bancarización en RD</span></a>
+        <a href="../blog/cuentas-nomina-vs-ahorro-rd.html"><span class="tag">Bancos</span><span class="title">Cuentas nómina vs ahorro</span></a>
+        <a href="../blog/independencia-financiera-rd.html"><span class="tag">Educación</span><span class="title">Independencia financiera en RD</span></a>
       </div>
     </div>
   </main>

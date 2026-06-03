@@ -6,7 +6,7 @@
   <title>{{TITLE}} - FinanzasRD</title>
   <meta name="description" content="{{DESCRIPTION}}">
   <meta name="keywords" content="{{KEYWORDS}}">
-  <meta name="author" content="FinanzasRD">
+  <meta name="author" content="{{AUTHOR}}">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.googlesyndication.com https://www.googletagmanager.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://open.er-api.com; frame-src https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; manifest-src 'self'; form-action 'self' https://formspree.io">
@@ -28,7 +28,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="article:published_time" content="{{DATE}}T00:00:00+00:00">
-  <meta property="article:modified_time" content="{{DATE}}T00:00:00+00:00">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}T00:00:00+00:00">
   <meta property="article:tag" content="{{TAG}}">
 
   <meta name="twitter:card" content="summary_large_image">
@@ -55,12 +55,13 @@
     "headline": "{{TITLE}}",
     "description": "{{DESCRIPTION}}",
     "image": "https://finanzasrd.github.io/og-image.svg",
-    "author": { "@type": "Person", "name": "{{AUTHOR}}", "url": "https://finanzasrd.github.io/about.html", "jobTitle": "{{AUTHOR_ROLE}}", "worksFor": { "@type": "Organization", "name": "FinanzasRD" } },
+    "author": { "@type": "Person", "name": "{{AUTHOR}}", "url": "https://finanzasrd.github.io/autores/{{AUTHOR_URL}}", "jobTitle": "{{AUTHOR_ROLE}}", "worksFor": { "@type": "Organization", "name": "FinanzasRD" } },
     "publisher": { "@type": "Organization", "name": "FinanzasRD", "logo": { "@type": "ImageObject", "url": "https://finanzasrd.github.io/og-image.svg" } },
     "datePublished": "{{DATE}}",
-    "dateModified": "{{DATE}}",
+    "dateModified": "{{DATE_MODIFIED}}",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://finanzasrd.github.io/blog/{{URL}}" },
-    "inLanguage": "es-DO"
+    "inLanguage": "es-DO",
+    "wordCount": {{WORD_COUNT}}
   }
   </script>
   <script type="application/ld+json">
@@ -78,12 +79,18 @@
     .article{max-width:720px;margin:0 auto;padding:2rem 0}
     .article h1{font-size:2rem;margin-bottom:.5rem;color:var(--dark)}
     .article .meta{color:var(--text-light);font-size:.9rem;margin-bottom:2rem}
-    .article h2 { font-size: 1.35rem; color: var(--primary-dark);margin:2rem 0 .75rem}
+    .article h2{font-size:1.35rem;color:var(--primary-dark);margin:2rem 0 .75rem;padding-bottom:.25rem;border-bottom:1px solid var(--primary-light)}
+    .article h3{font-size:1.1rem;color:var(--dark);margin:1.5rem 0 .5rem}
     .article p{color:var(--text);line-height:1.8;margin-bottom:1rem;font-size:1.05rem}
     .article ul{margin:1rem 0;padding-left:1.5rem}
     .article li{margin-bottom:.5rem;line-height:1.7;color:var(--text)}
-    .article .highlight{background:var(--primary-light);padding:1.25rem;border-radius:var(--radius-sm);margin:1.5rem 0;border-left: 4px solid var(--primary-dark)}
-    .article .highlight strong { color: var(--primary-dark); }
+    .article .highlight{background:var(--primary-light);padding:1.25rem;border-radius:var(--radius-sm);margin:1.5rem 0;border-left:4px solid var(--primary-dark)}
+    .article .highlight strong{color:var(--primary-dark)}
+    .article table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem}
+    .article table th{background:var(--primary);color:#fff;padding:.65rem .75rem;text-align:left;font-size:.82rem;font-weight:600}
+    .article table td{padding:.6rem .75rem;border-bottom:1px solid #e9ecef}
+    .article table tr:nth-child(even){background:var(--bg)}
+    .article table tr:hover{background:var(--primary-light)}
     .back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--primary-dark);font-weight:600;margin-bottom:1.5rem}
     .back-link:hover{text-decoration:underline}
     @media(prefers-color-scheme:dark){.article .highlight{background:rgba(10,92,54,0.15)}}
@@ -119,10 +126,40 @@
           <span class="breadcrumb__sep">/</span>
           <span class="breadcrumb__current">{{TITLE}}</span>
         </nav>
+        <a href="../index.html#blog" class="back-link">← Volver al blog</a>
         <h1>{{TITLE}}</h1>
-        <p class="meta">Publicado el {{DATE_HUMAN}} &bull; {{READ_TIME}} min de lectura</p>
+
+        <div class="article-meta-bar">
+          <span>Por <strong><a href="../autores/{{AUTHOR_URL}}" style="color:var(--primary-dark)">{{AUTHOR}}</a></strong></span>
+          <span class="dot">•</span>
+          <span>Publicado: <strong>{{DATE_HUMAN}}</strong></span>
+          <span class="dot">•</span>
+          <span>Actualizado: <strong>{{DATE_MODIFIED_HUMAN}}</strong></span>
+          <span class="dot">•</span>
+          <span>{{READ_TIME}} min de lectura</span>
+        </div>
 
         {{CONTENT}}
+
+        <div class="article-sources">
+          <h3>Fuentes consultadas</h3>
+          <ul>
+            {{SOURCES}}
+          </ul>
+          <span class="sources-note">Las fuentes se consultaron por última vez en {{SOURCES_DATE}}. Las tasas y condiciones pueden haber cambiado. Verifica siempre con la entidad correspondiente.</span>
+        </div>
+
+        <a href="../autores/{{AUTHOR_URL}}" class="author-bio" style="display:flex;text-decoration:none;cursor:pointer;gap:1rem;align-items:start;background:var(--primary-light);border-radius:var(--radius-sm);padding:1.25rem;margin:2rem 0;border:1px solid rgba(10,92,54,0.12)">
+          <div class="author-bio__avatar" style="font-size:2.5rem;flex-shrink:0;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;background:var(--white)">
+            {{AUTHOR_AVATAR}}
+          </div>
+          <div class="author-bio__info" style="flex:1">
+            <strong style="display:block;color:var(--dark);font-size:.95rem">{{AUTHOR}}</strong>
+            <span style="display:block;color:var(--primary-dark);font-size:.8rem;font-weight:600;margin-bottom:.5rem">{{AUTHOR_ROLE}}</span>
+            <p style="font-size:.85rem;color:var(--text-light);margin:0;line-height:1.6">{{AUTHOR_BIO}}</p>
+          </div>
+          <span style="color:var(--primary-dark);font-weight:600;font-size:.8rem;white-space:nowrap;align-self:center">Ver perfil →</span>
+        </a>
 
         <section class="related-posts">
           <h2>Artículos relacionados</h2>
@@ -163,20 +200,22 @@
         <ul>
           <li><a href="../privacidad.html">Política de privacidad</a></li>
           <li><a href="../terminos.html">Términos y condiciones</a></li>
-          <li><a href="../index.html#contacto">Contacto</a></li>
+          <li><a href="../cookies.html">Política de cookies</a></li>
+          <li><a href="../descargo.html">Descargo de responsabilidad</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>Contacto</h4>
         <ul>
           <li><a href="mailto:info@finanzasrd.com">info@finanzasrd.com</a></li>
-          <li><a href="#">Santo Domingo, RD</a></li>
+          <li><a href="../about.html">Sobre nosotros</a></li>
+          <li><a href="../nuestra-metodologia.html">Nuestra metodología</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <p>&copy; 2026 FinanzasRD. Todos los derechos reservados.</p>
+        <p>&copy; 2026 FinanzasRD. Todos los derechos reservados. <a href="../sitemap.xml">Sitemap</a> | <a href="../rss.xml">RSS</a></p>
       </div>
     </div>
   </footer>

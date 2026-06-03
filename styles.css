@@ -207,6 +207,17 @@ input,textarea,button{font-family:inherit;font-size:1rem}
 .footer__bottom a{color:var(--secondary)}
 .footer__bottom a:hover{color:#fff}
 .blog__tag{letter-spacing:.06em}
+.article-sources{background:var(--white);border-radius:var(--radius-sm);padding:1.25rem;margin:2rem 0;border:1px solid rgba(10,92,54,0.1);box-shadow:var(--shadow-sm)}
+.article-sources h3{font-size:.95rem;color:var(--primary-dark);margin-bottom:.75rem;font-weight:700}
+.article-sources ul{margin:0;padding-left:1.25rem}
+.article-sources li{margin-bottom:.35rem;font-size:.82rem;color:var(--text-light);line-height:1.5}
+.article-sources a{color:var(--primary-dark);font-weight:500;word-break:break-all}
+.article-meta-bar{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding:.75rem 1rem;background:var(--bg-alt);border-radius:var(--radius-sm);margin-bottom:1.5rem;font-size:.82rem;color:var(--text-light);align-items:center}
+.article-meta-bar strong{color:var(--text);font-weight:600}
+.article-meta-bar .dot{color:var(--text-muted)}
+.article-updated{display:inline-flex;align-items:center;gap:.35rem;color:var(--primary-dark);font-weight:600;font-size:.8rem}
+.sources-note{font-size:.78rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;display:block}
+.author-bio{border:1px solid rgba(10,92,54,0.12)}
 .article a,.legal-page a,.about-page a{color:var(--primary-dark);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .article a:hover,.legal-page a:hover,.about-page a:hover{color:var(--primary)}
 .form-group input[type="number"]{-moz-appearance:textfield}

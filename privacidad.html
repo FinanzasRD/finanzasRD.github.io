@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Política de Privacidad - FinanzasRD</title>
-  <meta name="description" content="Política de privacidad de FinanzasRD. Conoce cómo manejamos tus datos, cookies de AdSense y tu privacidad en nuestro sitio.">
+  <meta name="description" content="Política de privacidad completa de FinanzasRD. Conoce cómo recopilamos, usamos y protegemos tus datos personales. Cumplimiento con GDPR y leyes de privacidad aplicables.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://finanzasrd.github.io/privacidad.html">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ðŸ’°</text></svg>"<text y='.9em' font-size='90'>💰</text></svg>">
   <link rel="stylesheet" href="styles.css">
   <meta property="og:title" content="Política de Privacidad - FinanzasRD">
-  <meta property="og:description" content="Conoce cómo protegemos tu privacidad en FinanzasRD.">
+  <meta property="og:description" content="Política de privacidad completa de FinanzasRD. Transparencia total sobre el manejo de tus datos.">
   <meta property="og:url" content="https://finanzasrd.github.io/privacidad.html">
   <meta name="twitter:card" content="summary">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.googlesyndication.com https://www.googletagmanager.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://open.er-api.com; frame-src https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; manifest-src 'self'; form-action 'self' https://formspree.io">
+  <meta name="theme-color" content="#0A5C36">
+  <meta name="author" content="FinanzasRD">
+  <link rel="manifest" href="manifest.json">
   <style>
-    .legal-page{max-width:720px;margin:0 auto;padding:8rem 0 4rem}
-    .legal-page h1{font-size:2rem;color:var(--dark);margin-bottom:.5rem}
+    .legal-page{max-width:760px;margin:0 auto;padding:8rem 0 4rem}
+    .legal-page h1{font-size:2rem;color:var(--dark);margin-bottom:.25rem}
     .legal-page .meta{color:var(--text-light);font-size:.9rem;margin-bottom:2rem}
-    .legal-page h2{font-size:1.35rem;color:var(--primary-dark);margin:2rem 0 .75rem}
-    .legal-page p{color:var(--text);line-height:1.8;margin-bottom:1rem;font-size:1.05rem}
-    .legal-page ul{margin:1rem 0;padding-left:1.5rem}
+    .legal-page h2{font-size:1.35rem;color:var(--primary-dark);margin:2.5rem 0 .75rem;padding-bottom:.35rem;border-bottom:2px solid var(--primary-light)}
+    .legal-page h3{font-size:1.05rem;color:var(--dark);margin:1.5rem 0 .5rem}
+    .legal-page p{color:var(--text);line-height:1.8;margin-bottom:1rem;font-size:1.02rem}
+    .legal-page ul{margin:1rem 0 1rem 1.5rem}
     .legal-page li{margin-bottom:.5rem;line-height:1.7;color:var(--text)}
+    .legal-page strong{color:var(--primary-dark)}
+    .legal-page .highlight-box{background:var(--primary-light);border-radius:var(--radius-sm);padding:1.25rem;margin:1.5rem 0;border-left:4px solid var(--primary-dark)}
+    .legal-page .highlight-box p{margin-bottom:0;font-size:.95rem}
+    .legal-page .last-updated{display:inline-block;background:var(--bg-alt);padding:.35rem 1rem;border-radius:50px;font-size:.8rem;color:var(--text-light);margin-bottom:1.5rem}
   </style>
   <script type="application/ld+json">
   {
@@ -32,11 +41,15 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Política de Privacidad - FinanzasRD","description":"Política de privacidad completa de FinanzasRD. Conoce cómo recopilamos, usamos y protegemos tus datos personales.","inLanguage":"es-DO","dateModified":"2026-06-01"}
+  </script>
 </head>
 <body>
   <header class="header" id="header">
     <div class="container header__container">
       <a href="index.html" class="header__logo" aria-label="FinanzasRD - Inicio">FinanzasRD</a>
+      <button class="header__toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="header__nav" id="mainNav" role="navigation" aria-label="Navegación principal">
         <ul class="header__menu">
           <li><a href="index.html#inicio" class="header__link">Inicio</a></li>
@@ -55,51 +68,97 @@
         <span class="breadcrumb__current">Política de Privacidad</span>
       </nav>
       <h1>Política de Privacidad</h1>
-      <p class="meta">Última actualización: 18 de mayo de 2026</p>
+      <span class="last-updated">Última actualización: 1 de junio de 2026</span>
 
-      <p>En FinanzasRD, accesible desde <a href="https://finanzasrd.github.io/">https://finanzasrd.github.io/</a>, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento de Política de Privacidad contiene tipos de información que es recopilada y registrada por FinanzasRD y cómo la usamos.</p>
+      <div class="highlight-box">
+        <p><strong>Resumen:</strong> En FinanzasRD nos tomamos muy en serio tu privacidad. No recopilamos información personal sin tu consentimiento explícito. Todos los cálculos financieros se realizan localmente en tu navegador. Usamos cookies de Google AdSense para mostrar anuncios. Puedes controlar tus preferencias en cualquier momento.</p>
+      </div>
 
-      <h2>Información que recopilamos</h2>
-      <p><strong>No recopilamos información personal</strong> a menos que nos la proporciones voluntariamente a través del formulario de contacto. Los datos que ingreses en nuestras calculadoras se procesan <strong>exclusivamente en tu navegador</strong> y nunca se envían a nuestros servidores.</p>
+      <h2>1. Información que Recopilamos</h2>
+      <h3>1.1 Información que nos proporcionas voluntariamente</h3>
+      <p>Cuando utilizas nuestro <strong>formulario de contacto</strong>, recopilamos: nombre, dirección de correo electrónico y el contenido de tu mensaje. Esta información se utiliza únicamente para responder a tu consulta y nunca se comparte con terceros.</p>
+      <h3>1.2 Información recopilada automáticamente</h3>
+      <p>Como la mayoría de los sitios web, recopilamos información no personal a través de archivos de registro y cookies. Esto incluye: dirección IP (anonimizada), tipo de navegador, proveedor de servicios de internet (ISP), páginas visitadas, fecha y hora de la visita, y sitio web de referencia.</p>
+      <h3>1.3 Información que NO recopilamos</h3>
+      <p><strong>Importante:</strong> Las calculadoras financieras de FinanzasRD procesan todos los datos <strong>exclusivamente en tu navegador (lado del cliente)</strong>. No enviamos ni almacenamos en nuestros servidores los montos, tasas o resultados de tus cálculos financieros.</p>
 
-      <h2>Google AdSense</h2>
-      <p>Utilizamos Google AdSense para mostrar anuncios en nuestro sitio. Google, como proveedor externo, utiliza cookies para publicar anuncios en nuestro sitio. El uso de cookies por parte de Google permite a la empresa y a sus socios mostrar anuncios basados en las visitas de los usuarios a nuestros sitios web y a otros sitios de Internet.</p>
-
-      <h2>Cookies</h2>
-      <p>FinanzasRD utiliza cookies de terceros (Google AdSense) para:</p>
+      <h2>2. Cómo Usamos tu Información</h2>
+      <p>La información recopilada se utiliza para:</p>
       <ul>
-        <li>Mostrar anuncios personalizados basados en tu historial de navegación</li>
-        <li>Limitar la frecuencia de los anuncios</li>
-        <li>Medir la efectividad de las campañas publicitarias</li>
+        <li><strong>Responder a tus consultas:</strong> Los datos del formulario de contacto se usan exclusivamente para atender tu mensaje.</li>
+        <li><strong>Mejorar nuestro sitio:</strong> Los datos anónimos de navegación nos ayudan a entender qué contenido es más útil y a optimizar la experiencia del usuario.</li>
+        <li><strong>Mostrar publicidad relevante:</strong> Google AdSense utiliza cookies para mostrarte anuncios que puedan ser de tu interés.</li>
+        <li><strong>Cumplir con obligaciones legales:</strong> Cuando sea requerido por ley o autoridad competente.</li>
       </ul>
-      <p>Puedes optar por desactivar las cookies de personalización de anuncios en la <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Configuración de anuncios de Google</a>.</p>
 
-      <h2>Archivos de registro</h2>
-      <p>FinanzasRD sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. La información recopilada por los archivos de registro incluye direcciones de protocolo de Internet (IP), tipo de navegador, proveedor de servicios de Internet (ISP), marca de fecha y hora, páginas de referencia/salida y posiblemente el número de clics. Estos no están vinculados a ninguna información que sea de identificación personal.</p>
+      <h2>3. Google AdSense y Publicidad</h2>
+      <p>Utilizamos <strong>Google AdSense</strong> como proveedor de publicidad. Google utiliza cookies (como las cookies de DoubleClick) para publicar anuncios basados en tus visitas a nuestro sitio y a otros sitios web en internet.</p>
+      <p>Google AdSense utiliza:</p>
+      <ul>
+        <li><strong>Cookies de personalización:</strong> Para mostrarte anuncios relevantes según tus intereses.</li>
+        <li><strong>Cookies de rendimiento:</strong> Para medir la efectividad de las campañas publicitarias.</li>
+        <li><strong>Cookies de frecuencia:</strong> Para limitar la cantidad de veces que ves un mismo anuncio.</li>
+      </ul>
+      <p>Puedes optar por desactivar la personalización de anuncios visitando la <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Configuración de anuncios de Google</a>. También puedes consultar la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de Privacidad de Google</a> para más información.</p>
 
-      <h2>Consentimiento</h2>
-      <p>Al usar nuestro sitio web, aceptas nuestra Política de Privacidad y aceptas sus términos.</p>
+      <h2>4. Cookies</h2>
+      <p>FinanzasRD utiliza cookies propias y de terceros para garantizar el funcionamiento del sitio y mejorar tu experiencia. Para más detalles, consulta nuestra <a href="cookies.html">Política de Cookies</a> completa.</p>
+      <p>Tipos de cookies que utilizamos:</p>
+      <ul>
+        <li><strong>Cookies técnicas (necesarias):</strong> Permiten el funcionamiento básico del sitio web, como recordar tu consentimiento de cookies.</li>
+        <li><strong>Cookies de publicidad:</strong> Google AdSense utiliza cookies para personalizar los anuncios que ves.</li>
+        <li><strong>Cookies de terceros:</strong> Servicios externos como Google pueden establecer sus propias cookies para sus funcionalidades.</li>
+      </ul>
+
+      <h2>5. Derechos del Usuario</h2>
+      <p>Como usuario de FinanzasRD, tienes los siguientes derechos sobre tu información personal:</p>
+      <ul>
+        <li><strong>Derecho de acceso:</strong> Solicitar una copia de los datos personales que tenemos sobre ti.</li>
+        <li><strong>Derecho de rectificación:</strong> Solicitar la corrección de datos inexactos o incompletos.</li>
+        <li><strong>Derecho de supresión:</strong> Solicitar la eliminación de tus datos personales cuando ya no sean necesarios.</li>
+        <li><strong>Derecho de oposición:</strong> Oponerte al procesamiento de tus datos para fines de marketing.</li>
+        <li><strong>Derecho a retirar el consentimiento:</strong> En cualquier momento, sin afectar la legalidad del tratamiento basado en el consentimiento previo.</li>
+      </ul>
+      <p>Para ejercer cualquiera de estos derechos, contáctanos a través de nuestro <a href="index.html#contacto">formulario de contacto</a> o escribiéndonos a <a href="mailto:info@finanzasrd.com">info@finanzasrd.com</a>. Responderemos a tu solicitud en un plazo máximo de 30 días.</p>
+
+      <h2>6. Seguridad de los Datos</h2>
+      <p>Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Sin embargo, ningún método de transmisión por internet o almacenamiento electrónico es 100% seguro, por lo que no podemos garantizar una seguridad absoluta.</p>
+
+      <h2>7. Transferencia de Datos a Terceros</h2>
+      <p><strong>No vendemos, alquilamos ni compartimos</strong> tu información personal con terceros para sus fines de marketing. Compartimos información únicamente en los siguientes casos:</p>
+      <ul>
+        <li><strong>Proveedores de servicios:</strong> Como Google AdSense para publicidad, Formspree para el envío del formulario de contacto, y proveedores de hosting (GitHub Pages). Estos proveedores tienen acceso limitado a la información necesaria para realizar sus funciones y están obligados contractualmente a proteger tus datos.</li>
+        <li><strong>Cumplimiento legal:</strong> Cuando sea requerido por ley, orden judicial o autoridad gubernamental competente.</li>
+      </ul>
+
+      <h2>8. Enlaces a Sitios de Terceros</h2>
+      <p>Nuestro sitio web puede contener enlaces a sitios externos (bancos, cooperativas, entidades gubernamentales, etc.). No somos responsables de las prácticas de privacidad ni del contenido de estos sitios. Te recomendamos leer las políticas de privacidad de cada sitio que visites.</p>
+
+      <h2>9. Cambios en esta Política de Privacidad</h2>
+      <p>Podemos actualizar esta política de privacidad periódicamente para reflejar cambios en nuestras prácticas o en la legislación aplicable. Notificaremos cualquier cambio material publicando la nueva política en esta página y actualizando la fecha de "Última actualización". Te recomendamos revisar esta página periódicamente.</p>
+
+      <h2>10. Contacto</h2>
+      <p>Si tienes preguntas, inquietudes o solicitudes relacionadas con esta política de privacidad, no dudes en contactarnos:</p>
+      <ul>
+        <li><strong>Correo electrónico:</strong> <a href="mailto:info@finanzasrd.com">info@finanzasrd.com</a></li>
+        <li><strong>Formulario de contacto:</strong> <a href="index.html#contacto">Disponible en nuestro sitio web</a></li>
+        <li><strong>Tiempo de respuesta:</strong> Nos comprometemos a responder en un plazo máximo de 48 horas hábiles.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Fecha de entrada en vigencia:</strong> 1 de junio de 2026. Esta política reemplaza a cualquier versión anterior.</p>
+      </div>
     </div>
   </main>
   <footer class="footer">
     <div class="container footer__container">
-      <div class="footer__col">
-        <a href="index.html" class="footer__logo">FinanzasRD</a>
-        <p class="footer__desc">Tus herramientas financieras de confianza en República Dominicana.</p>
-      </div>
-      <div class="footer__col">
-        <h4>Enlaces</h4>
-        <ul><li><a href="index.html#inicio">Inicio</a></li><li><a href="index.html#calculadoras">Calculadoras</a></li><li><a href="index.html#blog">Blog</a></li></ul>
-      </div>
-      <div class="footer__col">
-        <h4>Legal</h4>
-        <ul><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="terminos.html">Términos y condiciones</a></li></ul>
-      </div>
+      <div class="footer__col"><a href="index.html" class="footer__logo">FinanzasRD</a><p class="footer__desc">Tus herramientas financieras de confianza en República Dominicana.</p></div>
+      <div class="footer__col"><h4>Enlaces</h4><ul><li><a href="index.html#inicio">Inicio</a></li><li><a href="index.html#calculadoras">Calculadoras</a></li><li><a href="index.html#blog">Blog</a></li></ul></div>
+      <div class="footer__col"><h4>Legal</h4><ul><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="terminos.html">Términos y condiciones</a></li></ul></div>
     </div>
-    <div class="footer__bottom">
-      <div class="container"><p>&copy; 2026 FinanzasRD. Todos los derechos reservados.</p></div>
-    </div>
+    <div class="footer__bottom"><div class="container"><p>&copy; 2026 FinanzasRD. Todos los derechos reservados.</p></div></div>
   </footer>
   <script src="script.js" defer></script>
 </body>
 </html>
+

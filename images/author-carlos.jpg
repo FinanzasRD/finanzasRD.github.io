@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#0A5C36"/>
+  <circle cx="200" cy="150" r="80" fill="#e6f7ef"/>
+  <ellipse cx="200" cy="370" rx="130" ry="100" fill="#e6f7ef"/>
+  <text x="200" y="300" text-anchor="middle" font-size="40" font-family="sans-serif" fill="#0A5C36" font-weight="bold">CARLOS</text>
+  <text x="200" y="340" text-anchor="middle" font-size="24" font-family="sans-serif" fill="#064026">FinanzasRD</text>
+</svg>
