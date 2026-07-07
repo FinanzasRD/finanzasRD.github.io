@@ -1,0 +1,42 @@
+name: Update Sitemap & RSS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blog/*.html'
+      - 'scripts/update-sitemap-rss.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run update script
+        run: python scripts/update-sitemap-rss.py
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --quiet sitemap.xml rss.xml || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config user.name "FinanzasRD Bot"
+          git config user.email "bot@finanzasrd.com"
+          git add sitemap.xml rss.xml
+          git commit -m "Auto-update sitemap and RSS [skip ci]"
+          git push
